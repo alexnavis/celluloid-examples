@@ -2,33 +2,42 @@
 
 ## Code
 
-Execute:
+Clone Code & Execute:
 
     $ bundle install
 
 ## Development
 
->> script/console.rb 
+Inspect:
+ 
+    script/console.rb 
 
-Examples:
+Run Examples:
 
-script/run.rb SupervisorActorHeirarchyTest
+Actors :
 
-script/run.rb ContainerWentMissing
+    script/run.rb ContainerWentMissing
+    script/run.rb AsyncInitCrash
+    script/run.rb InitCrash
+    script/run.rb MultiCrash
+    
+Actors Hierarchy:
 
-script/run.rb MinionAsyncInitCrash
+    script/run.rb ParentActorTest
+    script/run.rb SupervisorActorHeirarchyTest
 
-script/run.rb MinionMasterContainerCrash
+Supervisor Groups:
 
-script/run.rb MultiCrash
+    script/run.rb ChildInitCrashInContainerTest
+    script/run.rb MasterContainerCrash
 
-script/run.rb SiblingMinionActorTest
+Supervisor Group Under Group:
 
-script/run.rb SuperGroupTest
+    script/run.rb SuperGroupTest
+    
+Misc:
 
-script/run.rb SupervisorActorHeirarchyTest
-
-script/run.rb TestThreadContextTest
+    script/run.rb ThreadContextTest
 
 ## Contributing
 

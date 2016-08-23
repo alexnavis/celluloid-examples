@@ -1,7 +1,26 @@
 require 'celluloid/current'
 
+class Worker
+  include Celluloid
+
+  def initialize(is_async = true)
+    puts "initialize worker #{is_async}"
+    async.start if is_async
+    start unless is_async
+  end
+
+  def start
+    loop do
+      @times = (@times || 0) + 1
+      raise 'error in get_data' if @times % 2 == 0
+      puts "worker::get_data >> #{@times}"
+      sleep 1
+    end
+  end
+end
+
 class FirstContainer < Celluloid::Supervision::Container
-  supervise Minion, as: :minion
+  supervise Worker, as: :container_worker
 
   def initialize(start_loop)
   #   super(start_loop)
@@ -30,8 +49,6 @@ class SuperGroupTest < Celluloid::Supervision::Container
     @container = container
     link @container
   end
-
 end
-
 
 SuperGroupTest.run

@@ -4,7 +4,7 @@ class ContainerWentMissing
   include Celluloid
 
   def initialize
-    puts 'called in init crash test'
+    puts 'init'
     async.start
   end
 

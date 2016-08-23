@@ -1,16 +1,16 @@
 require 'celluloid/current'
 
-class SiblingMinionActor
+class ParentActor
   include Celluloid
 
   def initialize(crash_me = false)
-    puts 'initialize SiblingMinionActor'
+    puts 'initialize parent actor'
     async.setup(crash_me) # without async - it crashes the parent celluloid-examples as well
   end
 
   def setup(crash_me)
-    @minion = Celluloid::Actor[:minion]
-    link @minion
+    @child = Celluloid::Actor[:child]
+    link @child
     async.start if crash_me
     # other possibilities
     # @minion = Minion.new_link(false, true) # `sleep': No live threads left. Deadlock? (fatal)
@@ -18,6 +18,6 @@ class SiblingMinionActor
 
   def start
     every(2) { puts 'working' }
-    every(5) { raise 'parent minion error' }
+    every(5) { raise 'parent error' }
   end
 end
