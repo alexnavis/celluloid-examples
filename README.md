@@ -39,7 +39,6 @@ Misc:
 
     script/run.rb ThreadContextTest
 
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/actor.
