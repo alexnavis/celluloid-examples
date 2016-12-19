@@ -18,5 +18,6 @@ loop do
     Celluloid::Actor[:init].start if Celluloid::Actor[:init]
   rescue Exception => e
     puts e.inspect
+    # sleep 0.5
   end
 end

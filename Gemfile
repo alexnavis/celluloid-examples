@@ -8,9 +8,12 @@ gem 'rake'
 gem 'class-loader'
 
 gem 'celluloid'
+gem 'celluloid'
 gem 'celluloid-io'
 gem 'celluloid-redis'
 gem 'hitimes', '1.2.3'
 
 gem 'pry-byebug'
 gem 'pry-inline'
+
+gem 'semantic_logger'

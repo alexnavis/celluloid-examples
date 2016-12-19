@@ -18,6 +18,6 @@ class ParentActor
 
   def start
     every(2) { puts 'working' }
-    every(5) { raise 'parent error' }
+    every(5) { raise 'parent minion error' }
   end
 end

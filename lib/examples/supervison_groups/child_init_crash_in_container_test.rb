@@ -14,7 +14,7 @@ end
 
 class ChildInitCrashInContainerTest < Celluloid::Supervision::Container
   supervise ChildWorker, as: :child
-
+  
   def initialize
     super
     puts 'initialize master'
