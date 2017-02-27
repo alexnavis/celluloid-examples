@@ -7,7 +7,6 @@ Bundler.setup(:default, ACTOR_ENV)
 require 'class_loader'
 require 'celluloid'
 require 'pry' if %w(development test).include? ACTOR_ENV
-require 'semantic_logger'
 
 autoload_dir File.join(File.dirname(__FILE__), '..', '..', 'lib')
 directory = File.join(File.dirname(__FILE__), '..', '..', 'lib', 'examples')
