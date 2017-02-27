@@ -4,20 +4,19 @@ class Minion
   include Celluloid
 
   def initialize
-    puts 'init'
+    @bananas = []
   end
 
-  def hello
-    puts 'hello'
+  def add
+    @bananas << 1
+  end
+
+  def print
+    puts "Count: #{@bananas.size}"
   end
 end
 
-actor = Minion.new
-actor.hello
-actor.async.hello
-sleep
-
-# Output
-# init
-# hello
-# hello
+Minion.supervise as: :minion
+10.times { Thread.new { Celluloid::Actor[:minion].add } }
+sleep 2
+Celluloid::Actor[:minion].print # Count: 10
