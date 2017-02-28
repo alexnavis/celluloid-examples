@@ -11,11 +11,12 @@ class BlockingCallFuture
 
   def start
     every(1) { puts ' Every 1 second I do something' }
+    every(5) { @queue << 1 }
 
     loop do
       puts 'waiting for queue item'
       begin
-        puts Celluloid::Future.new { @queue.pop }.value
+        puts "Queue item#{Celluloid::Future.new { @queue.pop }.value}"
       rescue
         sleep 1
         redo
